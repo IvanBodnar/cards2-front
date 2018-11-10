@@ -2,4 +2,15 @@
 .ui.red.segment {
   margin: auto auto 10px;
   width: 50%;
+  cursor: pointer;
+}
+
+.times.icon {
+  position: absolute;
+  right: 7px;
+}
+
+.angle.icon {
+  position: absolute;
+  right: 35px;
 }
