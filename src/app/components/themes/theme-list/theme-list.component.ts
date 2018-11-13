@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import {DataService} from '../../../services/data.service';
 import ThemeModel from '../../../models/theme.model';
+import {ThemeService} from '../../../services/theme.service';
 
 
 @Component({
@@ -13,11 +13,11 @@ export class ThemeListComponent implements OnInit {
   themesArray: ThemeModel[];
 
   constructor(
-    private dataService: DataService
+    private themeService: ThemeService
   ) { }
 
   ngOnInit() {
-    this.dataService.getThemes()
+    this.themeService.fetchThemes()
       .subscribe(
         (themes: ThemeModel[]) => {
           this.themesArray = themes;
