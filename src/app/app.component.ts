@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+import {ThemeService} from './services/theme.service';
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +10,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cards2-front';
+
+  constructor(
+    private themeService: ThemeService
+  ) {
+    this.themeService.fetchThemes();
+  }
 }
