@@ -1,6 +1,6 @@
 
-<div class="ui center aligned red segment">
+<div *ngFor="let theme of themesArray" class="ui center aligned red segment">
   <i class="times red link icon"></i>
-  Red
+  {{ theme.name }}
 </div>
 
