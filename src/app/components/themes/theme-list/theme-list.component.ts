@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import {DataService} from '../../../services/data.service';
+
+
 @Component({
   selector: 'app-theme-list',
   templateUrl: './theme-list.component.html',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ThemeListComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private dataService: DataService
+  ) { }
 
   ngOnInit() {
+    this.dataService.getThemes()
+      .subscribe(
+        themes => console.log(themes),
+        error => console.log(error)
+      );
   }
 
 }
