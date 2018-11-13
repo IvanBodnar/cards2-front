@@ -15,7 +15,7 @@ export class DataService {
     private http: HttpClient
   ) { }
 
-  getThemes(): Observable<ThemeModel> {
-    return this.http.get<ThemeModel>(this.baseUrl + 'themes');
+  getThemes(): Observable<ThemeModel[]> {
+    return this.http.get<ThemeModel[]>(this.baseUrl + 'themes');
   }
 }
