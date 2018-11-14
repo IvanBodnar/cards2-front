@@ -5,8 +5,8 @@
 </div>
 
 <div class="ui fluid action input">
-  <input type="text" placeholder="Agregar Tema">
-  <button class="ui button">Agregar</button>
+  <input [(ngModel)]="addInput" type="text" placeholder="Agregar Tema">
+  <button (click)="onAdd()" class="ui button">Agregar</button>
 </div>
 
 

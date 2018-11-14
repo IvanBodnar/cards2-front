@@ -11,6 +11,7 @@ import {ThemeService} from '../../../services/theme.service';
 })
 export class ThemeListComponent implements OnInit {
   themesArray: ThemeModel[];
+  addInput: string;
 
   constructor(
     private themeService: ThemeService
@@ -26,8 +27,8 @@ export class ThemeListComponent implements OnInit {
       );
   }
 
-  onClick() {
-    this.themeService.addTheme();
+  onAdd() {
+    this.themeService.addTheme(this.addInput);
+    this.addInput = undefined;
   }
-
 }
