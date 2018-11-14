@@ -5,6 +5,11 @@
   cursor: pointer;
 }
 
+.ui.action.input {
+  margin: auto auto 10px;
+  width: 50%;
+}
+
 .times.icon {
   position: absolute;
   right: 7px;

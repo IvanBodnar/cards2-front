@@ -27,7 +27,7 @@ export class ThemeService {
   }
 
   addTheme() {
-    this.dataService.postTheme('ffff1')
+    this.dataService.postTheme('ffff6')
       .subscribe(
         () => this.fetchThemes()
       );
