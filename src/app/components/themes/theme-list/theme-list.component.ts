@@ -17,13 +17,17 @@ export class ThemeListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.themeService.fetchThemes()
+    this.themeService.themes$
       .subscribe(
         (themes: ThemeModel[]) => {
           this.themesArray = themes;
         },
         error => console.log(error)
       );
+  }
+
+  onClick() {
+    this.themeService.addTheme();
   }
 
 }

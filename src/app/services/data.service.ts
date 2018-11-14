@@ -18,4 +18,8 @@ export class DataService {
   getThemes(): Observable<ThemeModel[]> {
     return this.http.get<ThemeModel[]>(this.baseUrl + 'themes');
   }
+
+  postTheme(name: string): Observable<ThemeModel> {
+    return this.http.post(this.baseUrl + 'theme', {name: name});
+  }
 }

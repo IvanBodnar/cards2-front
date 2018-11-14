@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs';
+import {Subject} from 'rxjs';
 
 import {DataService} from './data.service';
 import ThemeModel from '../models/theme.model';
@@ -9,7 +9,8 @@ import ThemeModel from '../models/theme.model';
   providedIn: 'root'
 })
 export class ThemeService {
-  themes: ThemeModel[];
+  private _themesSubject = new Subject<ThemeModel[]>();
+  themes$ = this._themesSubject.asObservable();
 
   constructor(
     private dataService: DataService
@@ -19,9 +20,16 @@ export class ThemeService {
     this.dataService.getThemes()
       .subscribe(
         (themes: ThemeModel[]) => {
-          this.themes = themes;
+          this._themesSubject.next(themes);
         },
         error => console.log(error)
+      );
+  }
+
+  addTheme() {
+    this.dataService.postTheme('ffff1')
+      .subscribe(
+        () => this.fetchThemes()
       );
   }
 }
