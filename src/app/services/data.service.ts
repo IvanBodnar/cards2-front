@@ -20,6 +20,6 @@ export class DataService {
   }
 
   postTheme(name: string): Observable<ThemeModel> {
-    return this.http.post(this.baseUrl + 'theme', {name: name});
+    return this.http.post<ThemeModel>(this.baseUrl + 'theme', {name: name});
   }
 }
