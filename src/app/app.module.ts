@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import {FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ThemeListComponent } from './components/themes/theme-list/theme-list.component';
@@ -14,7 +15,8 @@ import { ThemeListComponent } from './components/themes/theme-list/theme-list.co
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
