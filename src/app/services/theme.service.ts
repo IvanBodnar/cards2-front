@@ -26,8 +26,8 @@ export class ThemeService {
       );
   }
 
-  addTheme() {
-    this.dataService.postTheme('ffff6')
+  addTheme(name: string) {
+    this.dataService.postTheme(name)
       .subscribe(
         () => this.fetchThemes()
       );
