@@ -1,7 +1,8 @@
 
+<h2 class="ui center aligned header">Temas</h2>
 <div *ngFor="let theme of themesArray" class="ui center aligned red segment">
   <i (click)="onDelete(theme._id)" class="times red link icon"></i>
-  <i class="pencil alternate link icon"></i>
+  <i [routerLink]="['cards/', theme.name]" class="pencil alternate link icon"></i>
   {{ theme.name }}
 </div>
 
@@ -9,6 +10,8 @@
   <input [(ngModel)]="addInput" type="text" placeholder="Agregar Tema">
   <button (click)="onAdd()" class="ui button">Agregar</button>
 </div>
+
+<router-outlet></router-outlet>
 
 
 
