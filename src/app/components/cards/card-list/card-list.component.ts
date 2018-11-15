@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import CardModel from '../../../models/card.model';
 
 @Component({
   selector: 'app-card-list',
@@ -8,13 +9,14 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class CardListComponent implements OnInit {
   themeName: string;
+  cards: CardModel[];
 
   constructor(
     private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    console.log(this.route.snapshot.data.cards);
+    this.cards = this.route.snapshot.data.cards;
     this.themeName = this.route.snapshot.params.themeName;
   }
 

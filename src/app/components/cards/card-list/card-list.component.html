@@ -1,2 +1,17 @@
 
 <h2 class="ui center aligned header">{{ themeName | titlecase }}</h2>
+<div class="ui four cards">
+  <div *ngFor="let card of cards" class="card">
+    <i class="times link red icon"></i>
+    <div class="content">
+      <div class="header">{{ card.front | titlecase }}</div>
+      <div class="description">
+        {{ card.back | titlecase }}
+      </div>
+    </div>
+    <div class="ui bottom attached button">
+      <i class="edit icon"></i>
+      Editar
+    </div>
+  </div>
+</div>
