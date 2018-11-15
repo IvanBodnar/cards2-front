@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 
 import {environment} from '../../environments/environment';
 import ThemeModel from '../models/theme.model';
+import CardModel from '../models/card.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,9 @@ export class DataService {
 
   deleteTheme(id: string): Observable<ThemeModel> {
     return this.http.delete<ThemeModel>(this.baseUrl + 'theme_delete/' + id);
+  }
+
+  getCards(): Observable<CardModel[]> {
+    return this.http.get<CardModel[]>(this.baseUrl + 'cards');
   }
 }
