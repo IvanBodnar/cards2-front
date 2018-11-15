@@ -1,6 +1,7 @@
 
 <div *ngFor="let theme of themesArray" class="ui center aligned red segment">
   <i (click)="onDelete(theme._id)" class="times red link icon"></i>
+  <i class="pencil alternate link icon"></i>
   {{ theme.name }}
 </div>
 

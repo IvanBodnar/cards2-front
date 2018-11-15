@@ -2,7 +2,6 @@
 .ui.red.segment {
   margin: auto auto 10px;
   width: 50%;
-  cursor: pointer;
 }
 
 .ui.action.input {
@@ -15,7 +14,7 @@
   right: 7px;
 }
 
-.angle.icon {
+.pencil.icon {
   position: absolute;
   right: 35px;
 }
