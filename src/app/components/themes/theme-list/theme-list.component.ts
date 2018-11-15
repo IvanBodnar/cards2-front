@@ -31,4 +31,8 @@ export class ThemeListComponent implements OnInit {
     this.themeService.addTheme(this.addInput);
     this.addInput = undefined;
   }
+
+  onDelete(id: string) {
+    this.themeService.deleteTheme(id);
+  }
 }

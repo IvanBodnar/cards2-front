@@ -32,4 +32,11 @@ export class ThemeService {
         () => this.fetchThemes()
       );
   }
+
+  deleteTheme(id: string) {
+    this.dataService.deleteTheme(id)
+      .subscribe(
+        () => this.fetchThemes()
+      );
+  }
 }

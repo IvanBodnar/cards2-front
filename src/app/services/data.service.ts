@@ -22,4 +22,8 @@ export class DataService {
   postTheme(name: string): Observable<ThemeModel> {
     return this.http.post<ThemeModel>(this.baseUrl + 'theme', {name: name});
   }
+
+  deleteTheme(id: string): Observable<ThemeModel> {
+    return this.http.delete<ThemeModel>(this.baseUrl + 'theme_delete/' + id);
+  }
 }
