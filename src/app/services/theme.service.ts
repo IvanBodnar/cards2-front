@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Subject} from 'rxjs';
+import {BehaviorSubject, Subject} from 'rxjs';
 
 import {DataService} from './data.service';
 import ThemeModel from '../models/theme.model';
@@ -9,7 +9,7 @@ import ThemeModel from '../models/theme.model';
   providedIn: 'root'
 })
 export class ThemeService {
-  private _themesSubject = new Subject<ThemeModel[]>();
+  private _themesSubject = new BehaviorSubject<ThemeModel[]>(null);
   themes$ = this._themesSubject.asObservable();
 
   constructor(
