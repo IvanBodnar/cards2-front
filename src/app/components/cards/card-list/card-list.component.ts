@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import CardModel from '../../../models/card.model';
+import {CardService} from '../../../services/card.service';
 
 @Component({
   selector: 'app-card-list',
@@ -12,12 +13,23 @@ export class CardListComponent implements OnInit {
   cards: CardModel[];
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private cardService: CardService
   ) { }
 
   ngOnInit() {
     this.cards = this.route.snapshot.data.cards;
+    this.cardService.cards$
+      .subscribe(
+        (cards: CardModel[]) => {
+          this.cards = cards;
+        }
+      );
     this.themeName = this.route.snapshot.params.themeName;
+  }
+
+  onAdd() {
+    this.cardService.addCard(this.themeName);
   }
 
 }
