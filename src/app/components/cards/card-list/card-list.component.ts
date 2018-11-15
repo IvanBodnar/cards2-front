@@ -14,7 +14,7 @@ export class CardListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.route);
+    console.log(this.route.snapshot.data.cards);
     this.themeName = this.route.snapshot.params.themeName;
   }
 
