@@ -28,7 +28,7 @@ export class DataService {
     return this.http.delete<ThemeModel>(this.baseUrl + 'theme_delete/' + id);
   }
 
-  getCards(): Observable<CardModel[]> {
-    return this.http.get<CardModel[]>(this.baseUrl + 'cards');
+  getCards(themeName: string): Observable<CardModel[]> {
+    return this.http.get<CardModel[]>(this.baseUrl + 'cards/' + themeName);
   }
 }
