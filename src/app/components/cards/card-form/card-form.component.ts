@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 import {State} from '../../../models/state.model';
@@ -11,10 +11,11 @@ import CardModel from '../../../models/card.model';
   templateUrl: './card-form.component.html',
   styleUrls: ['./card-form.component.css']
 })
-export class CardFormComponent implements OnInit {
+export class CardFormComponent implements OnInit, OnChanges {
   cardForm: FormGroup;
   @Input() themeName: string;
   state = State.add;
+  @Input() dataToEdit: CardModel;
 
   constructor(
     private cardService: CardService
@@ -27,11 +28,23 @@ export class CardFormComponent implements OnInit {
     });
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+    const value = changes.dataToEdit.currentValue;
+    if (value) {
+      this.cardForm.get('front').setValue(value.front);
+      this.cardForm.get('back').setValue(value.back);
+      this.state = State.edit;
+    }
+  }
+
   onSubmit() {
     const card: CardModel = new CardModel(
       null, this.cardForm.value.front, this.cardForm.value.back, this.themeName
     );
     this.cardService.addCard(card);
   }
+
+
 
 }

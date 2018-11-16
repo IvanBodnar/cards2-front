@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
 import CardModel from '../../../models/card.model';
 import {CardService} from '../../../services/card.service';
-import FormModel from '../../../models/form.model';
+
 
 @Component({
   selector: 'app-card-list',
@@ -13,6 +13,7 @@ import FormModel from '../../../models/form.model';
 export class CardListComponent implements OnInit {
   themeName: string;
   cards: CardModel[];
+  cardToEdit: CardModel;
 
   constructor(
     private route: ActivatedRoute,
@@ -30,11 +31,7 @@ export class CardListComponent implements OnInit {
     this.themeName = this.route.snapshot.params.themeName;
   }
 
-  onAdd() {
-    this.cardService.addCard(this.themeName);
-  }
-
-  onFormSubmitted(formValue: FormModel) {
-    console.log(formValue);
+  onEdit(card: CardModel) {
+    this.cardToEdit = card;
   }
 }

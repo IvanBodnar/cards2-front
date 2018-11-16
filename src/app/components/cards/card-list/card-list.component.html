@@ -1,6 +1,6 @@
 
 <h2 class="ui center aligned header">{{ themeName | titlecase }}</h2>
-<app-card-form [themeName]="themeName" (formSubmitted)="onFormSubmitted($event)"></app-card-form>
+<app-card-form [dataToEdit]="cardToEdit" [themeName]="themeName"></app-card-form>
 <div class="ui four stackable cards">
   <div *ngFor="let card of cards" class="ui card">
     <i class="times link red icon"></i>
@@ -12,7 +12,7 @@
         </p>
       </div>
     </div>
-    <div class="ui bottom attached button">
+    <div (click)="onEdit(card)" class="ui bottom attached button">
       <i class="edit icon"></i>
       Editar
     </div>
