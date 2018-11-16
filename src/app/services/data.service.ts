@@ -39,4 +39,8 @@ export class DataService {
   putCard(card: CardModel): Observable<CardModel> {
     return this.http.put<CardModel>(this.baseUrl + 'card', card);
   }
+
+  deleteCard(id: string): Observable<CardModel> {
+    return this.http.delete<CardModel>(this.baseUrl + 'card_delete/' + id);
+  }
 }
