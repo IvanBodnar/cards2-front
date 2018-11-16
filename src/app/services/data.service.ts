@@ -33,9 +33,10 @@ export class DataService {
   }
 
   postCard(card: CardModel): Observable<CardModel> {
-    return this.http.post<CardModel>(
-      this.baseUrl + 'card',
-      {card: card}
-      );
+    return this.http.post<CardModel>(this.baseUrl + 'card', {card: card});
+  }
+
+  putCard(card: CardModel): Observable<CardModel> {
+    return this.http.put<CardModel>(this.baseUrl + 'card', {card: card});
   }
 }
