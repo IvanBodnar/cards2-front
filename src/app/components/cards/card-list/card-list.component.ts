@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+
 import CardModel from '../../../models/card.model';
 import {CardService} from '../../../services/card.service';
+import FormModel from '../../../models/form.model';
 
 @Component({
   selector: 'app-card-list',
@@ -32,4 +34,7 @@ export class CardListComponent implements OnInit {
     this.cardService.addCard(this.themeName);
   }
 
+  onFormSubmitted(formValue: FormModel) {
+    console.log(formValue);
+  }
 }

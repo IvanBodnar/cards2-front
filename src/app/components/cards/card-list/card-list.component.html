@@ -1,6 +1,6 @@
 
 <h2 class="ui center aligned header">{{ themeName | titlecase }}</h2>
-<app-card-form></app-card-form>
+<app-card-form (formSubmitted)="onFormSubmitted($event)"></app-card-form>
 <div class="ui four stackable cards">
   <div *ngFor="let card of cards" class="ui card">
     <i class="times link red icon"></i>
