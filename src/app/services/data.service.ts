@@ -34,7 +34,8 @@ export class DataService {
 
   postCard(card: CardModel): Observable<CardModel> {
     return this.http.post<CardModel>(
-      this.baseUrl + 'card', {front: card.front, back: card.back, themeName: card.themeName}
+      this.baseUrl + 'card',
+      {card: card}
       );
   }
 }
