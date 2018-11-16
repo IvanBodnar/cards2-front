@@ -10,6 +10,7 @@ import CardModel from '../models/card.model';
   providedIn: 'root'
 })
 export class CardService implements Resolve<CardModel[]> {
+  themeName: string;
   private _cardsSubject = new BehaviorSubject<CardModel[]>(null);
   cards$ = this._cardsSubject.asObservable();
 
@@ -22,6 +23,7 @@ export class CardService implements Resolve<CardModel[]> {
     state: RouterStateSnapshot
   ): Observable<CardModel[]> {
     const themeName = route.params.themeName;
+    this.themeName = themeName;
     return this.fetchCards(themeName);
   }
 
@@ -47,6 +49,13 @@ export class CardService implements Resolve<CardModel[]> {
     this.dataservice.putCard(card)
       .subscribe(
         () => this.fetchCards(card.themeName)
+      );
+  }
+
+  removeCard(id: string) {
+    this.dataservice.deleteCard(id)
+      .subscribe(
+        () => this.fetchCards(this.themeName)
       );
   }
 
