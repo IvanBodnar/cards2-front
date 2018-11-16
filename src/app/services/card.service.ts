@@ -42,4 +42,12 @@ export class CardService implements Resolve<CardModel[]> {
         () => this.fetchCards(card.themeName)
       );
   }
+
+  editCard(card: CardModel) {
+    this.dataservice.putCard(card)
+      .subscribe(
+        () => this.fetchCards(card.themeName)
+      );
+  }
+
 }
