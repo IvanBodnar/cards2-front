@@ -4,3 +4,7 @@
   right: 7px;
   top: 7px;
 }
+
+.ui.card {
+  min-height: 200px;
+}
