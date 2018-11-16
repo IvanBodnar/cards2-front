@@ -21,6 +21,6 @@
   <button
     class="ui submit yellow button"
     [ngClass]="{ disabled: !cardForm.valid }"
-  >Submit
+  >{{ state === 'edit' ? 'Enviar Cambios' : 'Crear Tarjeta' }}
   </button>
 </form>
