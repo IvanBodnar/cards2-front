@@ -1,14 +1,22 @@
 
-<div class="ui form">
+<form [formGroup]="cardForm" (ngSubmit)="onSubmit()" class="ui form">
   <div class="two fields">
     <div class="field">
       <label for="frente">Frente</label>
-      <textarea id="frente"></textarea>
+      <textarea
+        formControlName="front"
+        id="frente"
+      >
+      </textarea>
     </div>
     <div class="field">
       <label for="dorso">Dorso</label>
-      <textarea id="dorso"></textarea>
+      <textarea
+        formControlName="back"
+        id="dorso"
+      >
+      </textarea>
     </div>
   </div>
-  <div class="ui submit button">Submit</div>
-</div>
+  <button class="ui submit button">Submit</button>
+</form>
