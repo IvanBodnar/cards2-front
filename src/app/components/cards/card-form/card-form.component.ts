@@ -1,8 +1,10 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 
-import FormModel from '../../../models/form.model';
 import {State} from '../../../models/state.model';
+import {CardService} from '../../../services/card.service';
+import CardModel from '../../../models/card.model';
+
 
 @Component({
   selector: 'app-card-form',
@@ -11,10 +13,12 @@ import {State} from '../../../models/state.model';
 })
 export class CardFormComponent implements OnInit {
   cardForm: FormGroup;
+  @Input() themeName: string;
   state = State.add;
-  @Output() formSubmitted: EventEmitter<FormModel> = new EventEmitter<FormModel>();
 
-  constructor() { }
+  constructor(
+    private cardService: CardService
+  ) { }
 
   ngOnInit() {
     this.cardForm = new FormGroup({
@@ -24,13 +28,10 @@ export class CardFormComponent implements OnInit {
   }
 
   onSubmit() {
-    const formData: FormModel = new FormModel(
-      this.cardForm.value.front,
-      this.cardForm.value.back,
-      this.state
+    const card: CardModel = new CardModel(
+      null, this.cardForm.value.front, this.cardForm.value.back, this.themeName
     );
-    this.formSubmitted.emit(formData);
-    // console.log(this.cardForm);
+    this.cardService.addCard(card);
   }
 
 }
