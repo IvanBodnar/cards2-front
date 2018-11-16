@@ -18,5 +18,9 @@
       </textarea>
     </div>
   </div>
-  <button class="ui submit button">Submit</button>
+  <button
+    class="ui submit yellow button"
+    [ngClass]="{ disabled: !cardForm.valid }"
+  >Submit
+  </button>
 </form>
