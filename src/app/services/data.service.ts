@@ -32,7 +32,9 @@ export class DataService {
     return this.http.get<CardModel[]>(this.baseUrl + 'cards/' + themeName);
   }
 
-  postCard(themeName: string, front: string, back: string): Observable<CardModel> {
-    return this.http.post(this.baseUrl + 'card/' + themeName, {front: front, back: back, themeName: themeName});
+  postCard(card: CardModel): Observable<CardModel> {
+    return this.http.post<CardModel>(
+      this.baseUrl + 'card', {front: card.front, back: card.back, themeName: card.themeName}
+      );
   }
 }
