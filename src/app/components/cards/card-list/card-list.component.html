@@ -3,7 +3,7 @@
 <app-card-form [dataToEdit]="cardToEdit" [themeName]="themeName"></app-card-form>
 <div class="ui four stackable cards">
   <div *ngFor="let card of cards" class="ui card">
-    <i class="times link red icon"></i>
+    <i (click)="onDelete(card._id)" class="times link red icon"></i>
     <div class="content">
       <div class="header">{{ card.front | titlecase }}</div>
       <div class="description">

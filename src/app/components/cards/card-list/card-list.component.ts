@@ -34,4 +34,9 @@ export class CardListComponent implements OnInit {
   onEdit(card: CardModel) {
     this.cardToEdit = card;
   }
+
+  onDelete(id: string) {
+    this.cardService.removeCard(id);
+  }
+  
 }
