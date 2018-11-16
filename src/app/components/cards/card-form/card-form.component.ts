@@ -29,7 +29,6 @@ export class CardFormComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
     const value = changes.dataToEdit.currentValue;
     if (value) {
       this.cardForm.get('front').setValue(value.front);
@@ -39,12 +38,27 @@ export class CardFormComponent implements OnInit, OnChanges {
   }
 
   onSubmit() {
+    const id = State.edit ? this.dataToEdit._id : null;
     const card: CardModel = new CardModel(
-      null, this.cardForm.value.front, this.cardForm.value.back, this.themeName
+      id,
+      this.cardForm.value.front,
+      this.cardForm.value.back,
+      this.themeName
     );
-    this.cardService.addCard(card);
+    if (this.state === State.edit) {
+      this.cardService.editCard(card);
+      this._clearFields();
+    } else if (this.state === State.add) {
+      this.cardService.addCard(card);
+      this._clearFields();
+    } else {
+      throw new Error('State not set');
+    }
   }
 
-
+  _clearFields(): void {
+    this.cardForm.get('front').setValue(null);
+    this.cardForm.get('back').setValue(null);
+  }
 
 }
