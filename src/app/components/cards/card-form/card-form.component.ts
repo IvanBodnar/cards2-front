@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+
+import FormModel from '../../../models/form.model';
+import {State} from '../../../models/state.model';
 
 @Component({
   selector: 'app-card-form',
@@ -8,6 +11,8 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class CardFormComponent implements OnInit {
   cardForm: FormGroup;
+  state = State.add;
+  @Output() formSubmitted: EventEmitter<FormModel> = new EventEmitter<FormModel>();
 
   constructor() { }
 
@@ -19,7 +24,13 @@ export class CardFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.cardForm);
+    const formData: FormModel = new FormModel(
+      this.cardForm.value.front,
+      this.cardForm.value.back,
+      this.state
+    );
+    this.formSubmitted.emit(formData);
+    // console.log(this.cardForm);
   }
 
 }
