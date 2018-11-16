@@ -1,6 +1,5 @@
 
 <h2 class="ui center aligned header">{{ themeName | titlecase }}</h2>
-<button (click)="onAdd()" class="ui button">Add</button>
 <div class="ui four stackable cards">
   <div *ngFor="let card of cards" class="ui card">
     <i class="times link red icon"></i>
@@ -10,7 +9,6 @@
         <p>
           {{ card.back }}
         </p>
-
       </div>
     </div>
     <div class="ui bottom attached button">
