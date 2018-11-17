@@ -15,6 +15,7 @@ export class CardListComponent implements OnInit {
   cards: CardModel[];
   cardToEdit: CardModel;
 
+
   constructor(
     private route: ActivatedRoute,
     private cardService: CardService
@@ -32,7 +33,7 @@ export class CardListComponent implements OnInit {
   }
 
   onEdit(card: CardModel) {
-    this.cardToEdit = card;
+    this.cardService.editSubject.next(card);
   }
 
   onDelete(id: string) {

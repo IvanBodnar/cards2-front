@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 
 import {DataService} from './data.service';
 import CardModel from '../models/card.model';
@@ -13,6 +13,8 @@ export class CardService implements Resolve<CardModel[]> {
   themeName: string;
   private _cardsSubject = new BehaviorSubject<CardModel[]>(null);
   cards$ = this._cardsSubject.asObservable();
+  editSubject = new Subject<CardModel>();
+  cardToEdit$ = this.editSubject.asObservable();
 
   constructor(
     private dataservice: DataService
