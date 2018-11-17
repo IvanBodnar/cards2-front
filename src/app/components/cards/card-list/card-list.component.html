@@ -1,6 +1,9 @@
 
 <h2 class="ui center aligned header">{{ themeName | titlecase }}</h2>
-<app-card-form [dataToEdit]="cardToEdit" [themeName]="themeName"></app-card-form>
+<app-card-form
+  [dataToEdit]="cardToEdit"
+  [themeName]="themeName">
+</app-card-form>
 <div class="ui four stackable cards">
   <div *ngFor="let card of cards" class="ui card">
     <i (click)="onDelete(card._id)" class="times link red icon"></i>

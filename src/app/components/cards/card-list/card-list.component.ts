@@ -38,5 +38,5 @@ export class CardListComponent implements OnInit {
   onDelete(id: string) {
     this.cardService.removeCard(id);
   }
-  
+
 }
