@@ -15,7 +15,7 @@ export class CardFormComponent implements OnInit {
   cardForm: FormGroup;
   @Input() themeName: string;
   state = State.add;
-  @Input() dataToEdit: CardModel;
+  editingId: string;
 
   constructor(
     private cardService: CardService
@@ -29,6 +29,7 @@ export class CardFormComponent implements OnInit {
     this.cardService.cardToEdit$
       .subscribe(
         (card: CardModel) => {
+          this.editingId = card._id;
           this.cardForm.get('front').setValue(card.front);
           this.cardForm.get('back').setValue(card.back);
           this.state = State.edit;
@@ -37,7 +38,7 @@ export class CardFormComponent implements OnInit {
   }
 
   onSubmit() {
-    const id = State.edit ? this.dataToEdit._id : null;
+    const id = State.edit ? this.editingId : null;
     const card: CardModel = new CardModel(
       id,
       this.cardForm.value.front,

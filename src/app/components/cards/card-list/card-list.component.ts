@@ -13,8 +13,6 @@ import {CardService} from '../../../services/card.service';
 export class CardListComponent implements OnInit {
   themeName: string;
   cards: CardModel[];
-  cardToEdit: CardModel;
-
 
   constructor(
     private route: ActivatedRoute,
