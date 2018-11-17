@@ -6,4 +6,6 @@
 
 .ui.submit.button {
   float: right;
+  margin-left: 20px;
+  min-width: 100px;
 }
