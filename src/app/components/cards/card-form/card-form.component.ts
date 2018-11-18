@@ -59,6 +59,7 @@ export class CardFormComponent implements OnInit {
   _clearFields(): void {
     this.cardForm.get('front').setValue(null);
     this.cardForm.get('back').setValue(null);
+    this.state = State.add;
   }
 
 }
