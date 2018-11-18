@@ -1,5 +1,11 @@
 
 <h2 class="ui center aligned header">{{ themeName | titlecase }}</h2>
+<button
+  [routerLink]="['shuffle']"
+  id="comenzar-btn"
+  class="ui red button"
+  >Comenzar
+</button>
 <app-card-form
   [themeName]="themeName">
 </app-card-form>
