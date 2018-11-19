@@ -9,8 +9,8 @@
         {{ currentCard.back }}
         <div id="buttons" class="extra content">
           <div class="ui two buttons">
-            <div class="ui green button">Approve</div>
-            <div class="ui red button">Decline</div>
+            <div (click)="onSuccess()" [ngClass]="{ disabled: scored }" class="ui green button">Acierto</div>
+            <div (click)="onError()" [ngClass]="{ disabled: scored }" class="ui red button">Error</div>
           </div>
         </div>
       </div>

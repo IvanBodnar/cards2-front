@@ -18,11 +18,6 @@
   bottom: 5px;
 }
 
-#next-button {
-  position: absolute;
-  left: 47.5%;
-}
-
 .flex {
   margin: 15px;
   display: flex;
