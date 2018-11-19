@@ -20,12 +20,12 @@
   color: #158349;
 }
 
-@media (min-width: 300px) {
+@media (max-width: 700px) {
   .ui.red.segment {
-    width: 75%;
+    width: 85%;
   }
 
   .ui.action.input {
-    width: 75%;
+    width: 85%;
   }
 }

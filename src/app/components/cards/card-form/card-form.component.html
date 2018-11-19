@@ -18,17 +18,23 @@
       </textarea>
     </div>
   </div>
-  <button
-    class="ui submit yellow button"
-    [ngClass]="{ disabled: !cardForm.valid }"
-  >
-    {{ state === 'edit' ? 'Enviar Cambios' : state === 'add' ? 'Crear Tarjeta' : null }}
-  </button>
-  <!--Este boton es div para que no envie la forma-->
-  <div
-    (click)="_clearFields()"
-    class="ui submit green button"
-  >
-    Limpiar Forma
+  <div id="buttons">
+    <!--Este boton es div para que no envie la forma-->
+    <div
+      id="clear-button"
+      (click)="_clearFields()"
+      class="ui submit green button"
+    >
+      Limpiar Forma
+    </div>
+    <div
+      id="submit-button"
+      class="ui submit yellow button"
+      [ngClass]="{ disabled: !cardForm.valid }"
+    >
+      {{ state === 'edit' ? 'Enviar Cambios' : state === 'add' ? 'Crear Tarjeta' : null }}
+    </div>
   </div>
+
+
 </form>

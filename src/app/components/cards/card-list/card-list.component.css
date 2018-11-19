@@ -26,11 +26,11 @@
   margin: 50px 20px;
 }
 
-@media (min-width: 300px) {
+@media (max-width: 700px) {
 
   .ui.bottom.attached.button {
     position: absolute;
     bottom: 0;
   }
-  
+
 }

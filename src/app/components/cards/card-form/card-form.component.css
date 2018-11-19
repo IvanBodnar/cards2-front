@@ -4,8 +4,39 @@
   margin: auto auto 70px;
 }
 
-.ui.submit.button {
+#buttons {
+  display: flex;
   float: right;
-  margin-left: 20px;
-  min-width: 100px;
+}
+
+.button {
+  min-width: 150px;
+}
+
+#submit-button {
+  margin-left: 30px;
+}
+
+@media (max-width: 700px) {
+  .ui.form {
+    width: 85%;
+  }
+
+  .button {
+    min-width: 140px;
+  }
+
+  #buttons {
+    float: none;
+  }
+
+  #clear-button {
+    float: left;
+  }
+
+  #submit-button {
+    float: right;
+    margin-left: auto;
+
+  }
 }
