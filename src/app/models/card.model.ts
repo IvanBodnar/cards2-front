@@ -4,6 +4,7 @@ export default class CardModel {
     public _id: string = null,
     public front: string,
     public back: string,
-    public themeName: string
+    public themeName: string,
+    public score: number = 0
   ) {}
 }
