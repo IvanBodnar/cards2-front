@@ -19,3 +19,13 @@
   right: 35px;
   color: #158349;
 }
+
+@media (min-width: 300px) {
+  .ui.red.segment {
+    width: 75%;
+  }
+
+  .ui.action.input {
+    width: 75%;
+  }
+}
