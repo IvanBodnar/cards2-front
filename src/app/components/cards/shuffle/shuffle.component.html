@@ -1,26 +1,23 @@
 
 <div class="flex">
-  <div class="ui card">
-    <div class="ui slide masked reveal">
-      <div class="visible center aligned content">
-        {{ currentCard.front }}
-      </div>
-      <div class="hidden center aligned content">
+
+  <div class="ui blurring segment">
+    <div class="ui header">
+      {{ currentCard.front }}
+    </div>
+    <div class="ui top aligned dimmer">
+      <div class="content">
         {{ currentCard.back }}
-        <div id="buttons" class="extra content">
-          <div class="ui two buttons">
-            <div (click)="onSuccess()" [ngClass]="{ disabled: scored }" class="ui green button">Acierto</div>
-            <div (click)="onError()" [ngClass]="{ disabled: scored }" class="ui red button">Error</div>
-          </div>
-        </div>
+      </div>
+      <div id="thumbs" class="ui center aligned content">
+        <i (click)="onError()" class="thumbs down large red link icon"></i>
+        <i (click)="onSuccess()" class="thumbs up large green link icon"></i>
       </div>
     </div>
   </div>
+
 </div>
 
 <div class="flex">
   <div (click)="onNext()" class="ui center aligned button">Siguiente</div>
 </div>
-
-
-

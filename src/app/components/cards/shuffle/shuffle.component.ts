@@ -24,6 +24,10 @@ export class ShuffleComponent implements OnInit {
   ngOnInit() {
     this._subscribeToCards();
     this._nextCard();
+    $('.segment')
+      .dimmer({
+        on: 'hover'
+      });
   }
 
   _subscribeToCards() {

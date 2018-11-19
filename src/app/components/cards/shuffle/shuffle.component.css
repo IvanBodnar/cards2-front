@@ -1,21 +1,16 @@
 
-.ui.slide.masked {
+.ui.segment {
   min-height: 200px;
+  min-width: 300px;
 }
 
-.visible.content {
-  background-color: linen;
-}
-
-.hidden.content {
-  background-color: lightyellow;
-  min-height: 200px;
-}
-
-#buttons {
+#thumbs {
   position: absolute;
-  right: 50px;
-  bottom: 5px;
+  bottom: 15px;
+}
+
+.thumbs {
+  margin: 15px;
 }
 
 .flex {
