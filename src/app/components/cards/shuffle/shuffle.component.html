@@ -10,8 +10,18 @@
         {{ currentCard.back }}
       </div>
       <div id="thumbs" class="ui center aligned content">
-        <i (click)="onError()" class="thumbs down large red link icon"></i>
-        <i (click)="onSuccess()" class="thumbs up large green link icon"></i>
+        <i
+          (click)="onError()"
+          [ngClass]="{ disabled: scored, link: !scored }"
+          class="thumbs down large red icon"
+        >
+        </i>
+        <i
+          (click)="onSuccess()"
+          [ngClass]="{ disabled: scored, link: !scored }"
+          class="thumbs up large green link icon"
+        >
+        </i>
       </div>
     </div>
   </div>
