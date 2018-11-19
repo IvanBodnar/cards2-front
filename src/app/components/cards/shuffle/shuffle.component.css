@@ -1,4 +1,31 @@
 
 .ui.slide.masked {
-  min-height: 100px;
+  min-height: 200px;
+}
+
+.visible.content {
+  background-color: linen;
+}
+
+.hidden.content {
+  background-color: lightyellow;
+  min-height: 200px;
+}
+
+#buttons {
+  position: absolute;
+  right: 50px;
+  bottom: 5px;
+}
+
+#next-button {
+  position: absolute;
+  left: 47.5%;
+}
+
+.flex {
+  margin: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

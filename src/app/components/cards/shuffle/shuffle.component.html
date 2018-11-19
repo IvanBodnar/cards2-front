@@ -1,13 +1,26 @@
 
-<div class="ui centered card">
-  <div class="ui slide masked reveal">
-    <div class="visible content">
-      {{ currentCard.front }}
-    </div>
-    <div class="hidden content">
-      {{ currentCard.back }}
+<div class="flex">
+  <div class="ui card">
+    <div class="ui slide masked reveal">
+      <div class="visible center aligned content">
+        {{ currentCard.front }}
+      </div>
+      <div class="hidden center aligned content">
+        {{ currentCard.back }}
+        <div id="buttons" class="extra content">
+          <div class="ui two buttons">
+            <div class="ui green button">Approve</div>
+            <div class="ui red button">Decline</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-<button (click)="add()" class="ui button">Add</button>
-<button (click)="onNext()" class="ui button">Next</button>
+
+<div class="flex">
+  <div (click)="onNext()" class="ui center aligned button">Siguiente</div>
+</div>
+
+
+
