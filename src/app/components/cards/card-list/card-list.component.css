@@ -25,3 +25,12 @@
 .ui.divider {
   margin: 50px 20px;
 }
+
+@media (min-width: 300px) {
+
+  .ui.bottom.attached.button {
+    position: absolute;
+    bottom: 0;
+  }
+  
+}
