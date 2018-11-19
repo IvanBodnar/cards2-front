@@ -11,6 +11,17 @@
   margin: 10px;
 }
 
-#comenzar-btn {
-  float: right;
+.head {
+  margin: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.ui.header {
+  margin: 20px
+}
+
+.ui.divider {
+  margin: 50px 20px;
 }
