@@ -36,7 +36,6 @@ export class ShuffleComponent implements OnInit {
         cards => {
           this.cardsIt = cards.entries();
           this.cutIndex = Math.floor(cards.length / 2);
-          console.log('_subscribeToCards: ', this.cutIndex, cards);
         }
       );
   }
@@ -45,7 +44,6 @@ export class ShuffleComponent implements OnInit {
     const nextCard = this.cardsIt.next();
     if (nextCard.value[0] === this.cutIndex) {
       this.cardService.fetchCards(this.cardService.themeName).subscribe(() => {});
-      console.log('getCards');
     }
     this.currentCard = nextCard.value[1];
   }

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Renderer2} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
 import CardModel from '../../../models/card.model';
@@ -16,7 +16,8 @@ export class CardListComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private cardService: CardService
+    private cardService: CardService,
+    private renderer: Renderer2
   ) { }
 
   ngOnInit() {
@@ -31,7 +32,9 @@ export class CardListComponent implements OnInit {
   }
 
   onEdit(card: CardModel) {
+    const form = this.renderer.selectRootElement('form', true);
     this.cardService.editSubject.next(card);
+    form.scrollIntoView({behavior: 'smooth'});
   }
 
   onDelete(id: string) {
