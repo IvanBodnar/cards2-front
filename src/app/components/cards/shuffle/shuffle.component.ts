@@ -59,9 +59,10 @@ export class ShuffleComponent implements OnInit {
           this.scored = false;
         }, 1000
       );
+    } else {
+      this._nextCard();
+      this.scored = false;
     }
-    this._nextCard();
-    this.scored = false;
   }
 
   onSuccess() {
