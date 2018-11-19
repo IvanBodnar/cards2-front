@@ -11,7 +11,7 @@ import {DataService} from '../../../services/data.service';
   styleUrls: ['./shuffle.component.css']
 })
 export class ShuffleComponent implements OnInit {
-  active = false;
+  scored = false;
   cardsIt: any;
   cutIndex: number;
   currentCard: CardModel;
@@ -48,14 +48,25 @@ export class ShuffleComponent implements OnInit {
 
   onNext() {
     this._nextCard();
+    this.scored = false;
   }
 
-  add() {
+  onSuccess() {
     this.currentCard.score += 1;
     this.dataService.putCard(this.currentCard)
       .subscribe(
         () => {}
       );
+    this.scored = true;
+  }
+
+  onError() {
+    this.currentCard.score -= 1;
+    this.dataService.putCard(this.currentCard)
+      .subscribe(
+        () => {}
+      );
+    this.scored = true;
   }
 
 }
