@@ -9,6 +9,10 @@
   bottom: 15px;
 }
 
+#back {
+  color: black;
+}
+
 .thumbs {
   margin: 15px;
 }
