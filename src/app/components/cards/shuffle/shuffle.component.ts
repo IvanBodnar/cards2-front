@@ -51,6 +51,15 @@ export class ShuffleComponent implements OnInit {
   }
 
   onNext() {
+    const mobile = window.matchMedia('(max-width: 1025px)');
+    if (mobile.matches) {
+      setTimeout(
+        () => {
+          this._nextCard();
+          this.scored = false;
+        }, 1000
+      );
+    }
     this._nextCard();
     this.scored = false;
   }
