@@ -1,3 +1,13 @@
-<p>
-  shuffle works!
-</p>
+
+<div class="ui centered card">
+  <div class="ui slide masked reveal">
+    <div class="visible content">
+      {{ currentCard.front }}
+    </div>
+    <div class="hidden content">
+      {{ currentCard.back }}
+    </div>
+  </div>
+</div>
+<button (click)="add()" class="ui button">Add</button>
+<button (click)="onNext()" class="ui button">Next</button>
