@@ -1,1 +1,1 @@
-const $;
+// declare var $;

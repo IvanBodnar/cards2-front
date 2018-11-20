@@ -4,6 +4,7 @@ import {CardService} from '../../../services/card.service';
 import CardModel from '../../../models/card.model';
 import {DataService} from '../../../services/data.service';
 
+declare let $: any;
 
 @Component({
   selector: 'app-shuffle',
