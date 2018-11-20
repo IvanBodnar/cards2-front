@@ -28,6 +28,7 @@
       Limpiar Forma
     </div>
     <div
+      (click)="onSubmit()"
       id="submit-button"
       class="ui submit yellow button"
       [ngClass]="{ disabled: !cardForm.valid }"
