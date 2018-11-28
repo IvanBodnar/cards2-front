@@ -18,10 +18,10 @@
   <div *ngFor="let card of cards" class="ui card">
     <i (click)="onDelete(card._id)" class="times link red icon"></i>
     <div class="content">
-      <div class="header">{{ card.front | titlecase }}</div>
+      <div class="header"></div>
       <div class="description">
         <p>
-          {{ card.back }}
+          {{ card.front }}
         </p>
       </div>
     </div>
