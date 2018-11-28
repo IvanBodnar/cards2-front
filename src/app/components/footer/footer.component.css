@@ -1,0 +1,8 @@
+
+._footer {
+  bottom: 0;
+  height: 70px;
+  width: 100%;
+  background: red;
+  margin-top: -70px;
+}

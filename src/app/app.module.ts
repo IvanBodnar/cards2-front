@@ -11,6 +11,7 @@ import { CardListComponent } from './components/cards/card-list/card-list.compon
 import { CardFormComponent } from './components/cards/card-form/card-form.component';
 import { ShuffleComponent } from './components/cards/shuffle/shuffle.component';
 import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HeaderComponent } from './components/header/header.component';
     CardListComponent,
     CardFormComponent,
     ShuffleComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
