@@ -10,6 +10,8 @@ import { ThemeListComponent } from './components/themes/theme-list/theme-list.co
 import { CardListComponent } from './components/cards/card-list/card-list.component';
 import { CardFormComponent } from './components/cards/card-form/card-form.component';
 import { ShuffleComponent } from './components/cards/shuffle/shuffle.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ShuffleComponent } from './components/cards/shuffle/shuffle.component';
     ThemeListComponent,
     CardListComponent,
     CardFormComponent,
-    ShuffleComponent
+    ShuffleComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

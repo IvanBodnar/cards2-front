@@ -1,5 +1,8 @@
+.ui.center.aligned.header {
+  margin-top: 150px;
+}
 
-.ui.red.segment {
+.ui.segment {
   margin: auto auto 10px;
   width: 50%;
 }
@@ -21,11 +24,15 @@
 }
 
 @media (max-width: 700px) {
-  .ui.red.segment {
+  .ui.segment {
     width: 85%;
   }
 
   .ui.action.input {
     width: 85%;
   }
+}
+
+.ui.custom-color.segment:not(.inverted) {
+  border-top: 2px solid #E53935!important;
 }
