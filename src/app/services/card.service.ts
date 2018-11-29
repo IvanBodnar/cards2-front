@@ -1,9 +1,11 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
 import {BehaviorSubject, Observable, Subject} from 'rxjs';
 
 import {DataService} from './data.service';
 import CardModel from '../models/card.model';
+import {MessageService} from './message.service';
+import {MessageType} from '../models/message.model';
 
 
 @Injectable({
@@ -17,7 +19,8 @@ export class CardService implements Resolve<CardModel[]> {
   cardToEdit$ = this.editSubject.asObservable();
 
   constructor(
-    private dataservice: DataService
+    private dataservice: DataService,
+    private messageService: MessageService
   ) { }
 
   resolve(
@@ -50,14 +53,38 @@ export class CardService implements Resolve<CardModel[]> {
   editCard(card: CardModel) {
     this.dataservice.putCard(card)
       .subscribe(
-        () => this.fetchCards(card.themeName)
+        () => this.fetchCards(card.themeName),
+        () => {
+      this.messageService.sendMessage(
+        MessageType.negative,
+        'Tarjeta no Editada'
+      );
+    },
+    () => {
+      this.messageService.sendMessage(
+        MessageType.positive,
+        'Tarjeta Editada'
+      );
+    }
       );
   }
 
   removeCard(id: string) {
     this.dataservice.deleteCard(id)
       .subscribe(
-        () => this.fetchCards(this.themeName)
+        () => this.fetchCards(this.themeName),
+        () => {
+          this.messageService.sendMessage(
+            MessageType.negative,
+            'Tarjeta no Eliminada'
+          );
+        },
+        () => {
+          this.messageService.sendMessage(
+            MessageType.positive,
+            'Tarjeta Eliminada'
+          );
+        }
       );
   }
 
