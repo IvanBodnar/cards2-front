@@ -3,6 +3,8 @@ import {ActivatedRoute} from '@angular/router';
 
 import CardModel from '../../../models/card.model';
 import {CardService} from '../../../services/card.service';
+import {MessageService} from '../../../services/message.service';
+import MessageModel, {MessageType} from '../../../models/message.model';
 
 
 @Component({
@@ -15,9 +17,10 @@ export class CardListComponent implements OnInit {
   cards: CardModel[];
 
   constructor(
-    private route: ActivatedRoute,
     private cardService: CardService,
-    private renderer: Renderer2
+    private messageService: MessageService,
+    private route: ActivatedRoute,
+    private renderer: Renderer2,
   ) { }
 
   ngOnInit() {
@@ -38,6 +41,12 @@ export class CardListComponent implements OnInit {
   }
 
   onDelete(id: string) {
+    const message: MessageModel = new MessageModel(
+      MessageType.info,
+      '',
+      'Tarjeta Eliminada'
+    );
+    this.messageService.sendMessage(message);
     this.cardService.removeCard(id);
   }
 
