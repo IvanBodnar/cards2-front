@@ -46,7 +46,19 @@ export class CardService implements Resolve<CardModel[]> {
   addCard(card: CardModel) {
     this.dataservice.postCard(card)
       .subscribe(
-        () => this.fetchCards(card.themeName)
+        () => this.fetchCards(card.themeName),
+        () => {
+          this.messageService.sendMessage(
+            MessageType.negative,
+            'Tarjeta no Agregada'
+          );
+        },
+        () => {
+          this.messageService.sendMessage(
+            MessageType.positive,
+            'Tarjeta Agregada'
+          );
+        }
       );
   }
 
@@ -55,17 +67,17 @@ export class CardService implements Resolve<CardModel[]> {
       .subscribe(
         () => this.fetchCards(card.themeName),
         () => {
-      this.messageService.sendMessage(
-        MessageType.negative,
-        'Tarjeta no Editada'
-      );
-    },
-    () => {
-      this.messageService.sendMessage(
-        MessageType.positive,
-        'Tarjeta Editada'
-      );
-    }
+          this.messageService.sendMessage(
+            MessageType.negative,
+            'Tarjeta no Editada'
+          );
+        },
+        () => {
+          this.messageService.sendMessage(
+            MessageType.positive,
+            'Tarjeta Editada'
+          );
+        }
       );
   }
 
