@@ -1,8 +1,9 @@
 
 export enum MessageType {
-  error = 'ERROR',
-  warning = 'WARNING',
-  success = 'SUCCESS'
+  info = 'info',
+  warning = 'warning',
+  positive = 'positive',
+  negative = 'negative'
 }
 
 export default class MessageModel {
