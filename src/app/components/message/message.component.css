@@ -3,9 +3,5 @@
   position: absolute;
   width: 200px;
   right: 30px;
-}
-
-._visible {
-  visibility: visible;
-  opacity: 0.9;
+  transition: opacity 3s;
 }
