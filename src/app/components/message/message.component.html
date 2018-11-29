@@ -1,8 +1,7 @@
 
-<div class="ui negative message _visible">
-  <i class="close icon"></i>
+<div *ngIf="message" [ngStyle]="opacity" [ngClass]="[message.type]" class="ui message">
   <div class="header">
-    Error
+    {{ message.title }}
   </div>
-  <p>That offer has expired</p>
+  <p>{{ message.message }}</p>
 </div>
