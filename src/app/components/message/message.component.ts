@@ -21,13 +21,17 @@ export class MessageComponent implements OnInit {
     this.messageService.message$
       .subscribe(
         ( message: MessageModel ) => {
-          this.message = message;
-          setTimeout(() => {
-            this.opacity = { 'opacity': 0.9 };
-            setTimeout(() => this.opacity = { 'opacity': 0 } , 3000);
-          }, 100);
+          this._showMessage(message);
         }
       );
+  }
+
+  private _showMessage(message: MessageModel): void {
+    this.message = message;
+    setTimeout(() => {
+      this.opacity = { 'opacity': 0.9 };
+      setTimeout(() => this.opacity = { 'opacity': 0 } , 3000);
+    }, 100);
   }
 
 }
