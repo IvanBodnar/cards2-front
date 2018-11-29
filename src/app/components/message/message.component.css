@@ -1,7 +1,7 @@
 
 .ui.message {
-  position: absolute;
-  width: 200px;
+  position: fixed;
   right: 30px;
   transition: opacity 3s;
+  z-index: 10;
 }

@@ -41,12 +41,6 @@ export class CardListComponent implements OnInit {
   }
 
   onDelete(id: string) {
-    const message: MessageModel = new MessageModel(
-      MessageType.info,
-      '',
-      'Tarjeta Eliminada'
-    );
-    this.messageService.sendMessage(message);
     this.cardService.removeCard(id);
   }
 

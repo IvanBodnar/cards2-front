@@ -9,7 +9,7 @@ export enum MessageType {
 export default class MessageModel {
   constructor(
     public type: MessageType,
-    public title: string,
-    public message: string
+    public message: string,
+    public title?: string
   ) {}
 }

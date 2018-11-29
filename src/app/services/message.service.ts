@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
-import MessageModel from '../models/message.model';
+import MessageModel, {MessageType} from '../models/message.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,30 @@ export class MessageService {
 
   constructor() { }
 
-  sendMessage(message: MessageModel): void {
+  sendMessage(messageType: MessageType, messageText: string): void {
+    let title: string;
+    switch (messageType) {
+      case MessageType.positive:
+        title = 'Operación Exitosa';
+        break;
+      case MessageType.negative:
+        title = 'Operación Fallida';
+        break;
+      case MessageType.info:
+        title = 'Info';
+        break;
+      case MessageType.warning:
+        title = 'Atención';
+        break;
+      default:
+        title = 'Tipo de Mensaje Desconocido';
+        break;
+    }
+    const message = new MessageModel(
+      messageType,
+      messageText,
+      title
+    );
     this.messageSubject.next(message);
   }
 }
