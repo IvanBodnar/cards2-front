@@ -19,13 +19,15 @@
 }
 
 .times.icon {
+  font-size: 20px;
   color: var(--main-color);
   position: absolute;
   right: 7px;
 }
 
 .pencil.icon {
-  color: var(--main-color-var1);
+  font-size: 18px;
+  color: var(--main-color);
   position: absolute;
   right: 35px;
 }

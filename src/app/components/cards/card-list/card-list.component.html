@@ -16,7 +16,7 @@
 
 <div class="ui four stackable cards">
   <div *ngFor="let card of cards" class="ui card">
-    <i (click)="onDelete(card._id)" class="times link icon"></i>
+    <a (click)="onDelete(card._id)"><i class="times link icon"></i></a>
     <div class="content">
       <div class="header"></div>
       <div class="description">
