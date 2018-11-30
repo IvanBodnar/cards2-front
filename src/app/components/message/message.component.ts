@@ -22,6 +22,7 @@ export class MessageComponent implements OnInit {
       .subscribe(
         ( message: MessageModel ) => {
           this._showMessage(message);
+          this._hideMessage();
         }
       );
   }
@@ -30,8 +31,11 @@ export class MessageComponent implements OnInit {
     this.message = message;
     setTimeout(() => {
       this.opacity = { 'opacity': 0.9 };
-      setTimeout(() => this.opacity = { 'opacity': 0 } , 3000);
     }, 100);
+  }
+
+  private _hideMessage(): void {
+    setTimeout(() => this.opacity = { 'opacity': 0 }, 3500);
   }
 
 }
