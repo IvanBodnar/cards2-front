@@ -3,6 +3,8 @@ import {BehaviorSubject} from 'rxjs';
 
 import {DataService} from './data.service';
 import ThemeModel from '../models/theme.model';
+import {MessageType} from '../models/message.model';
+import {MessageService} from './message.service';
 
 
 @Injectable({
@@ -13,7 +15,8 @@ export class ThemeService {
   themes$ = this._themesSubject.asObservable();
 
   constructor(
-    private dataService: DataService
+    private dataService: DataService,
+    private messageService: MessageService
   ) { }
 
   fetchThemes() {
@@ -29,14 +32,38 @@ export class ThemeService {
   addTheme(name: string) {
     this.dataService.postTheme(name)
       .subscribe(
-        () => this.fetchThemes()
+        () => this.fetchThemes(),
+        () => {
+          this.messageService.sendMessage(
+            MessageType.negative,
+            'Tema no agregado'
+          );
+        },
+        () => {
+          this.messageService.sendMessage(
+            MessageType.positive,
+            'Tema agregado'
+          );
+        }
       );
   }
 
   deleteTheme(id: string) {
     this.dataService.deleteTheme(id)
       .subscribe(
-        () => this.fetchThemes()
+        () => this.fetchThemes(),
+        () => {
+          this.messageService.sendMessage(
+            MessageType.negative,
+            'Tema no eliminado'
+          );
+        },
+        () => {
+          this.messageService.sendMessage(
+            MessageType.positive,
+            'Tema eliminado'
+          );
+        }
       );
   }
 }

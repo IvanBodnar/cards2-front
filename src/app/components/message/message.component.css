@@ -2,6 +2,10 @@
 .ui.message {
   position: fixed;
   right: 30px;
-  transition: opacity 3s;
+  transition: opacity 1s;
   z-index: 10;
+}
+
+.ui.button {
+  width: 70px;
 }

@@ -8,6 +8,8 @@ import MessageModel, {MessageType} from '../models/message.model';
 export class MessageService {
   messageSubject: Subject<MessageModel> = new Subject<MessageModel>();
   message$ = this.messageSubject.asObservable();
+  confirmMessageSubject: Subject<boolean> = new Subject<boolean>();
+  confirmMessage$ = this.confirmMessageSubject.asObservable();
 
   constructor() { }
 
@@ -37,4 +39,5 @@ export class MessageService {
     );
     this.messageSubject.next(message);
   }
+
 }

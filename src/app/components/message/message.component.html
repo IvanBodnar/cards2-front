@@ -4,4 +4,8 @@
     {{ message.title }}
   </div>
   <p>{{ message.message }}</p>
+  <div *ngIf="message.type === 'warning'" class="buttons">
+    <div (click)="onConfirmation(true)" class="ui red inverted button">Si</div>
+    <div (click)="onConfirmation(false)" class="ui green inverted button">No</div>
+  </div>
 </div>

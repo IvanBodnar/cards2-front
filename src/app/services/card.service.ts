@@ -50,13 +50,13 @@ export class CardService implements Resolve<CardModel[]> {
         () => {
           this.messageService.sendMessage(
             MessageType.negative,
-            'Tarjeta no Agregada'
+            'Tarjeta no agregada'
           );
         },
         () => {
           this.messageService.sendMessage(
             MessageType.positive,
-            'Tarjeta Agregada'
+            'Tarjeta agregada'
           );
         }
       );
@@ -69,13 +69,13 @@ export class CardService implements Resolve<CardModel[]> {
         () => {
           this.messageService.sendMessage(
             MessageType.negative,
-            'Tarjeta no Editada'
+            'Tarjeta no editada'
           );
         },
         () => {
           this.messageService.sendMessage(
             MessageType.positive,
-            'Tarjeta Editada'
+            'Tarjeta editada'
           );
         }
       );

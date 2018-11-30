@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import ThemeModel from '../../../models/theme.model';
 import {ThemeService} from '../../../services/theme.service';
+import {MessageService} from '../../../services/message.service';
+import {MessageType} from '../../../models/message.model';
 
 
 @Component({
@@ -14,7 +16,8 @@ export class ThemeListComponent implements OnInit {
   addInput: string;
 
   constructor(
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit() {
@@ -33,6 +36,14 @@ export class ThemeListComponent implements OnInit {
   }
 
   onDelete(id: string) {
-    this.themeService.deleteTheme(id);
+    this.messageService.sendMessage(MessageType.warning, 'Seguro que desea eliminar el tema?');
+    this.messageService.confirmMessage$
+      .subscribe(
+        response => {
+          if (response) {
+            this.themeService.deleteTheme(id);
+          }
+        }
+      );
   }
 }

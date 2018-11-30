@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import {MessageService} from '../../services/message.service';
-import MessageModel from '../../models/message.model';
+import MessageModel, {MessageType} from '../../models/message.model';
 
 
 @Component({
@@ -21,7 +21,12 @@ export class MessageComponent implements OnInit {
     this.messageService.message$
       .subscribe(
         ( message: MessageModel ) => {
-          this._showMessage(message);
+          if (message.type === MessageType.warning) {
+            this._showMessage(message);
+          } else {
+            this._showMessage(message);
+            this._hideMessage(1500);
+          }
         }
       );
   }
@@ -30,8 +35,16 @@ export class MessageComponent implements OnInit {
     this.message = message;
     setTimeout(() => {
       this.opacity = { 'opacity': 0.9 };
-      setTimeout(() => this.opacity = { 'opacity': 0 } , 3000);
     }, 100);
+  }
+
+  private _hideMessage(ms: number = 0): void {
+    setTimeout(() => this.opacity = { 'opacity': 0 }, ms);
+  }
+
+  onConfirmation(value: boolean) {
+    this.messageService.confirmMessageSubject.next(value);
+    this._hideMessage();
   }
 
 }

@@ -19,8 +19,8 @@
 }
 
 .flex {
-  margin: 15px;
+  margin: 200px 15px 0 15px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
