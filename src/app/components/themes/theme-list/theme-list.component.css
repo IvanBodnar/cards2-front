@@ -34,5 +34,5 @@
 }
 
 .ui.custom-color.segment:not(.inverted) {
-  border-top: 2px solid #E53935!important;
+  border-top: 4px solid var(--secondary-color) !important;
 }
