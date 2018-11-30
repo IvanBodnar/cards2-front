@@ -4,7 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import CardModel from '../../../models/card.model';
 import {CardService} from '../../../services/card.service';
 import {MessageService} from '../../../services/message.service';
-import MessageModel, {MessageType} from '../../../models/message.model';
+import {MessageType} from '../../../models/message.model';
 
 
 @Component({
@@ -41,7 +41,16 @@ export class CardListComponent implements OnInit {
   }
 
   onDelete(id: string) {
-    this.cardService.removeCard(id);
+    this.messageService.sendMessage(MessageType.warning, '');
+    this.messageService.confirmMessage$
+      .subscribe(
+        response => {
+          if (response) {
+            this.cardService.removeCard(id);
+          }
+        }
+      );
+
   }
 
 }
