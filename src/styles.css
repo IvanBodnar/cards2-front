@@ -16,5 +16,7 @@ body {
 
 :root {
   --main-color: #512C4F;
+  --main-color-var1: #B800C0;
   --secondary-color: #FFB75C;
+  --card-bg: #EBE8EB;
 }
