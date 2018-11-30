@@ -1,5 +1,6 @@
 
 .times.icon {
+  color: var(--main-color);
   position: absolute;
   right: 7px;
   top: 7px;
@@ -9,6 +10,12 @@
   min-height: 200px;
   max-width: 500px;
   margin: 10px;
+  background: var(--card-bg);
+}
+
+.ui.bottom.attached.button {
+  background: var(--main-color);
+  color: var(--secondary-color);
 }
 
 .head {
@@ -39,4 +46,9 @@ p {
 
 .description {
   margin-top: 20px !important;
+}
+
+#begin-button {
+  background: var( --main-color-var1);
+  color: white;
 }

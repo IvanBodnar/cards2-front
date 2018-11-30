@@ -32,11 +32,12 @@
 
   #clear-button {
     float: left;
+    background: var(--main-color-var1);
   }
 
   #submit-button {
     float: right;
     margin-left: auto;
-
+    background: var(--secondary-color);
   }
 }
