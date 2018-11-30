@@ -5,3 +5,7 @@
   transition: opacity 1s;
   z-index: 10;
 }
+
+.ui.button {
+  width: 70px;
+}
