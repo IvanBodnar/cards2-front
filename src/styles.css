@@ -14,3 +14,7 @@ body {
   position: relative;
 }
 
+:root {
+  --main-color: #512C4F;
+  --secondary-color: #FFB75C;
+}
