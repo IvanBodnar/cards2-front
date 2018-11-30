@@ -41,7 +41,7 @@ export class CardListComponent implements OnInit {
   }
 
   onDelete(id: string) {
-    this.messageService.sendMessage(MessageType.warning, '');
+    this.messageService.sendMessage(MessageType.warning, 'Seguro que desea eliminar la tarjeta?');
     this.messageService.confirmMessage$
       .subscribe(
         response => {
@@ -50,7 +50,6 @@ export class CardListComponent implements OnInit {
           }
         }
       );
-
   }
 
 }
