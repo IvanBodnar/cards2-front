@@ -1,7 +1,7 @@
 
 <h2 class="ui center aligned header">Temas</h2>
 <div *ngFor="let theme of themesArray" class="ui center aligned custom-color segment">
-  <i (click)="onDelete(theme._id)" class="times red link icon"></i>
+  <i (click)="onDelete(theme._id)" class="times link icon"></i>
   <i [routerLink]="['cards/', theme.name]" class="pencil alternate link icon"></i>
   {{ theme.name }}
 </div>

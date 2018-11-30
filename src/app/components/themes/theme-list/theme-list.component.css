@@ -3,6 +3,7 @@
 }
 
 .ui.segment {
+  background: var(--card-bg);
   margin: auto auto 10px;
   width: 50%;
 }
@@ -12,15 +13,21 @@
   width: 50%;
 }
 
+.ui.button {
+  background: var(--main-color);
+  color: var(--secondary-color);
+}
+
 .times.icon {
+  color: var(--main-color);
   position: absolute;
   right: 7px;
 }
 
 .pencil.icon {
+  color: var(--main-color-var1);
   position: absolute;
   right: 35px;
-  color: #158349;
 }
 
 @media (max-width: 700px) {
@@ -34,5 +41,5 @@
 }
 
 .ui.custom-color.segment:not(.inverted) {
-  border-top: 2px solid #E53935!important;
+  border-top: 4px solid var(--secondary-color) !important;
 }

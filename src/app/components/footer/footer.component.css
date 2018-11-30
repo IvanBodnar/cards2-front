@@ -3,6 +3,6 @@
   bottom: 0;
   height: 70px;
   width: 100%;
-  background: red;
+  background: var(--main-color);
   margin-top: -70px;
 }
